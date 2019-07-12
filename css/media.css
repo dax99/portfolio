@@ -1,0 +1,116 @@
+@media screen and (max-width: 1568px) {
+  #hero #glic {
+    width: 95%;
+    z-index: 7; }
+    #hero #glic .glitchy {
+      font-size: 5rem; } }
+@media screen and (max-width: 1300px) {
+  .stranica #wrapper #mystory p {
+    font-size: 1.7vw; } }
+@media screen and (max-width: 1000px), (orientation: portrait) {
+  .stranica .headline .line {
+    height: 8px; }
+  .stranica .headline h2 {
+    font-size: 2.8em; }
+  .stranica #wrapper {
+    flex-direction: column; }
+    .stranica #wrapper #mystory, .stranica #wrapper #progressomot {
+      width: 80%; }
+      .stranica #wrapper #mystory p, .stranica #wrapper #progressomot p {
+        font-size: 1.2em; }
+    .stranica #wrapper #progressomot {
+      margin: 20px 0px 50px; }
+      .stranica #wrapper #progressomot h4 {
+        font-size: 1.2rem; }
+      .stranica #wrapper #progressomot #prviprogres {
+        margin-top: 0px; }
+
+  #portfolioomot {
+    padding-bottom: 80px; }
+    #portfolioomot .rad {
+      width: 40%; }
+
+  #portfolioomot .rad:first-child, #portfolioomot .rad:nth-child(4) {
+    margin: 80px 0px 0px 20px; }
+
+  #Clients .clientsb .item {
+    font-size: 1.5vw; }
+    #Clients .clientsb .item p {
+      text-align: left; } }
+@media screen and (max-width: 720px) {
+  .content .flex nav .navigation {
+    font-size: 2em; }
+
+  #hero #slika {
+    width: 13em; }
+  #hero #blob {
+    bottom: 25%;
+    width: 13em; }
+  #hero #glic {
+    width: 58%; }
+    #hero #glic .glitchy {
+      font-size: 2.8em; }
+
+  #Clients .clientsb {
+    padding: 0px 20px; }
+    #Clients .clientsb .item {
+      font-size: 1.8vw; } }
+@media screen and (max-width: 600px), (orientation: portrait) {
+  .stranica {
+    height: auto !important; }
+
+  #hero #glic {
+    width: 88%; }
+    #hero #glic .glitchy {
+      font-size: 2.8em; }
+
+  .stranica .headline h2 {
+    font-size: 2em; }
+
+  #wrapper #mystory p {
+    font-size: 1em;
+    text-align: left; }
+
+  #Clients .clientsb {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px; }
+    #Clients .clientsb .item {
+      width: 100%;
+      margin-bottom: 50px; }
+      #Clients .clientsb .item p {
+        margin: 10px auto;
+        text-align: center;
+        font-size: 2.1em; }
+      #Clients .clientsb .item img {
+        width: 10em;
+        height: 10em; }
+      #Clients .clientsb .item h4 {
+        font-size: 1.9em; }
+      #Clients .clientsb .item h5 {
+        font-size: 1.7em;
+        padding: 0.5em 0;
+        color: #777; }
+      #Clients .clientsb .item .share {
+        margin: 0px auto;
+        width: 10em;
+        display: flex;
+        justify-content: space-between; }
+      #Clients .clientsb .item i {
+        font-size: 1.9em;
+        padding: 0.5em 0;
+        -webkit-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+        cursor: pointer; }
+
+  .stranica #portfolioomot .rad {
+    width: 90%;
+    margin: 30px auto; } }
+@media screen and (max-width: 400px) {
+  #hero #glic {
+    width: 90%; }
+    #hero #glic .glitchy {
+      font-size: 2.2em; } }
+
+/*# sourceMappingURL=media.css.map */

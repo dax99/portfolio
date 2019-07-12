@@ -1,0 +1,685 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,700);
+$burgerheight:0.4em;
+$red:#ed145b;
+$open:'Open Sans', sans-serif;
+$tamnoplava:#002a59;
+$svetloplava:#27c3c2;
+$grey:#001A29;
+$bela:#fff;
+$offset1: 3px;
+$offset2: -3px;
+@mixin animacija-hover{
+  background:#be124c;
+  transition:background-color 0.3s ease-in-out;
+}
+
+
+*, *:before, *:after{
+    padding: 0px;
+    margin: 0px;
+    -webkit-box-sizing: border-box;
+-moz-box-sizing:border-box;
+box-sizing: border-box;
+}
+html{
+  scroll-behavior: smooth;
+  ::selection {
+    color: $bela;
+    background: $red;
+  }
+  ::-webkit-scrollbar-track {
+    background: $tamnoplava; 
+    
+  }
+  ::-webkit-scrollbar {
+    width: 12px;
+    border-radius: 8px ;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: $svetloplava; 
+    border-radius: 8px ;
+    &:hover{
+      background: $red; 
+    }
+  }
+  
+}
+body{
+    width: 100%;
+    font-family: $open;
+    }
+
+.stranica{
+    width:100%;
+    min-height:100vh; 
+    background-color: $bela;
+    position: relative;
+    .headline{
+      width: 100%;
+      display: flex;    
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 35px;
+      
+     h2{
+      
+       font-weight:bold;
+       text-align: center;
+       text-transform: uppercase;
+       font-size:3.2em;     
+       }
+      
+      .line{
+        width: 42%;
+        height: 10px;
+        &:nth-of-type(2n) {
+          margin-left: 10px;
+          border-radius: 5px 0px 0px 5px;
+        }
+        &:nth-of-type(2n-1) {
+          margin-right: 10px;
+          border-radius: 0px 5px 5px 0px ;
+        }
+      }
+    
+    }
+    &:nth-of-type(2n) {
+     background: url(../img/zvezde.svg) repeat center fixed, radial-gradient(circle, rgba(0,60,126,1) 27%, rgba(0,16,37,1));
+     h2
+     {
+      color:$svetloplava;
+      
+    }
+    .line{
+      background-color: $red;
+    }
+    }
+    &:nth-of-type(2n-1) {
+      h2{color:$tamnoplava;}
+      .line{
+        background-color: $svetloplava;
+      }
+     }
+}
+
+
+
+.content {
+    width:100%;
+    opacity:0;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position:fixed;
+    right:100%;
+    transition:0.5s;   
+    background:radial-gradient(circle, rgba(0,37,77,1) 0%, rgba(0,41,87,0.908000700280112) 0%, rgba(0,52,133,0.8743872549019608) 100%);
+    z-index: 999;
+    
+  .navigation {
+   
+    list-style-type:none;
+    padding-left:0px;
+    text-align:center;
+    font-size:3em;
+    font-weight:bold;
+    li {
+      padding:15px;
+    }
+    a {
+      color:$bela;
+      text-decoration:none;
+      position:relative;
+      display:inline-block;
+      overflow-x:hidden;
+      transition:all 0.2s;
+      &:before {
+        content:'';
+        overflow:hidden;
+        width:100%;
+        position:absolute;
+        left:-150%;
+        bottom:0px;
+        height:3px;
+        background-color:$svetloplava;
+        transition:all 0.4s;
+      }
+      &:hover {
+        color:$svetloplava;
+        &:before {
+          left:0px;
+        }
+      }
+    }
+  }
+}
+
+.show {
+  right:0px;
+  opacity:1;
+}
+
+.hamburger {
+  background-color:transparent;
+  border:0px;
+  outline:0px;
+  width:3em;
+  height:2em;
+  position:fixed;
+  top:20px;
+  right:30px;
+  cursor:pointer;
+  z-index:9999;
+  .burger {
+    transition:all 0.3s;
+    border-radius:5px;
+    height:$burgerheight;
+    width:100%;
+    display:inline-block;
+    background-color:$svetloplava;
+  }
+}
+
+  .focus {
+    .burger {
+      transition:all 0.3s;
+      &:first-of-type {
+        background-color:$red;
+        transition-delay:0.4s;
+        transform: translate3d(0px, 0px, 0px) rotateZ(45deg);
+        width:40px;
+        transform-origin:left top;
+      }
+      &:nth-of-type(2) {
+        opacity:0;
+      }
+      &:last-of-type {
+        background-color:$red;
+        transition-delay:0.4s;
+        transform: translate3d(0px, 0px, 0px) rotateZ(-45deg);
+        width:40px;
+        transform-origin:left bottom;
+      }
+    }
+  }
+
+
+ #hero {
+    width:100%;
+    height:100vh;
+    background: url(../img/zvezde.svg) repeat center fixed, url(../img/crtice.svg)center fixed,url(../img/slova.svg)no-repeat 100%   fixed ,radial-gradient(circle, rgba(0,60,126,1) 27%, rgba(0,16,37,1));   
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    .glitch {
+       color:$bela;
+       font: {
+        family: 'Poppins', sans-serif;
+        weight: 600;
+        size:7em;
+        
+       }
+       
+      
+       position: relative;
+       padding:30px;
+       padding-bottom:20%; 
+       &:before, &:after {
+          content:'Portfolio';
+          color:$bela;
+          position: absolute;
+          top:0;
+          overflow:hidden;
+          padding:30px;
+       }
+       &:before {
+          left:2px;
+          text-shadow: -2px 0 $red;
+          animation: glitch-before 2s linear 0s infinite alternate;
+       }
+       &:after {
+          left:-2px;
+          text-shadow: -2px 0 $svetloplava;
+          animation: glitch-after 2s linear 0s infinite alternate;
+       }
+    }
+    
+#glic{
+  width: 80%;
+  height: 100%;
+  z-index: 1;
+
+
+.glitchy {
+  font-size: 6em;
+  color: $bela;
+  font-family: Oxygen, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  position: sticky;
+  top: 100px;
+  text-transform: uppercase;
+  padding-bottom: 20%;
+  text-align: center;
+  
+  &::before, &::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+   
+  }
+  
+  &::before {
+    left: $offset1;
+    text-shadow: -3px 0 $svetloplava;
+    clip: rect(20px, 800px, 170px, 0px);
+    animation: glitchy-anim 2.5s infinite linear alternate-reverse;
+  }
+  
+  &::after {
+    left: $offset2;
+    text-shadow: -3px 0 $red;
+    clip: rect(108px, 800px, 170px, 0px);
+    animation: glitchy-anim2 2.5s infinite linear alternate-reverse;
+  }
+  
+  @mixin keyframes($n: 24, $index:0) {
+    @for $i from $index through $n {
+      $rand1: unquote(round(random() * 150) + "px");
+      $rand2: unquote(round(random() * 300) + "px");
+      $keyframeSel: percentage($i/$n);
+      #{$keyframeSel} {
+        clip: rect($rand1, 9999px, $rand2, 0);
+      }
+    }
+  }
+ 
+  @keyframes glitchy-anim {
+    @include keyframes(24, 0);
+  }
+  @keyframes glitchy-anim2 {
+    @include keyframes(30, 2);
+  }
+  }
+}
+
+
+
+
+ #blob{
+   width: 42em;
+   position: absolute;
+   bottom: 10%;
+   
+   
+   
+ }
+ #slika{
+  position: absolute;
+  width:24em;
+  bottom: 0px;
+  z-index: 2;
+ }
+ }
+ 
+
+  
+
+
+//PORTFOLIO
+
+ #wrapper{
+   width: 100%;  
+   display: flex;
+   justify-content: space-between;
+   align-items:center;
+   #mystory{
+     
+     width: 50%;
+     height: 100%;
+    
+     padding: 30px;
+     
+     h3{
+       font-size: 2em;
+       padding-bottom: 20px;
+       color:$tamnoplava;
+     }
+     p{
+      font-size: 1.4em;
+      text-align: justify;
+     }
+ 
+   }
+   #progressomot{
+    width: 50%;
+    margin:50px 0px;
+    text-transform: uppercase;  
+    padding-left: 50px;
+      li{
+        position: relative;
+        list-style-type: none;
+        margin:50px 0px;
+        font-weight: 600;
+       
+        font-size: 1.4em;
+        color:$tamnoplava;
+        &:before{
+          content: "";
+          position: absolute;
+          top:calc(100% + 10px);
+          left: 0px;
+          width: 90%;
+          height: 15px;
+          background-color: rgba(237, 20, 91,0.5);
+          border-radius: 30px;
+        }
+        &:after{
+          content: "";
+          position: absolute;
+          top:calc(100% + 10px);
+          left: 0px;
+          width: 0;
+          height: 15px;
+          background-color: rgba(237, 20, 91,1);
+          border-radius: 30px;
+          animation-duration: 1s;
+          animation-timing-function: linear;
+          animation-fill-mode: forwards;
+        }
+        h4{
+          font-size: 1.3rem;
+          
+         
+        }
+      }
+      li.html:after{
+        animation-name: html;
+      }
+  @keyframes html {
+    to{
+    width: 80%;
+    }
+  }
+  
+  
+  
+  li.css:after{
+    animation-name: css;
+  }
+  @keyframes css {
+  to{
+  width: 70%;
+  }
+  }
+  
+  
+  li.javascript:after{
+    animation-name: javascript;
+  }
+  @keyframes javascript {
+  to{
+  width: 30%;
+  }
+  }
+  
+  li.photoshop:after{
+    animation-name: photoshop;
+  }
+  @keyframes photoshop {
+  to{
+  width: 88%;
+  }
+  }
+  
+  li.illustrator:after{
+    animation-name: illustrator;
+  }
+  @keyframes illustrator {
+  to{
+  width: 50%;
+  }
+  }
+  
+  
+  }
+
+ }
+
+
+
+
+
+
+#portfolioomot{
+  width:80%;
+  margin:0px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  .rad{
+    width: 30%;
+    margin: 80px 0px 0px 20px;
+    
+    &:first-child, &:nth-child(4)  {
+      margin-left:0px;
+    }
+    a{
+      img{
+        width:100%;
+        -webkit-box-shadow: 0px 0px 30px -3px rgba(0,0,0,1);
+        -moz-box-shadow: 0px 0px 30px -3px rgba(0,0,0,1);
+        box-shadow: 0px 0px 30px -3px rgba(0,0,0,1);
+      }
+    }
+  }
+}
+//PORTFOLIO
+
+//CONTACT
+
+
+.veciomot{
+padding:80px 0px;
+display: flex;
+justify-content: center;
+align-items: center;
+.contactomot {
+  margin:20px;
+  box-shadow: 0px 0px 20px -10px rgba(0,0,0,1);
+  max-width:25em;
+  max-height: 50em;
+  background:rgb(252, 252, 252);
+  padding:25px;
+ 
+  text-align: center;
+  text-transform: uppercase;
+  #social{
+    width: 80%;
+    margin: 0px auto;
+    display: flex;
+    justify-content: space-around;
+  }
+
+     
+
+       a {
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        background-color: $red;
+        border-radius: 18px;
+        font-size: 20px;
+        color: $bela;
+        text-align: center;
+        line-height: 35px;
+        margin-right: 5px;
+        margin-top: 20px;
+    }
+     
+
+
+     h3 {
+      color: $red;
+      display: block;
+      font-size: 2em;
+      font-weight: 500;
+      
+    }
+
+     h4 {
+      margin:5px 0 15px;
+      display:block;
+      font-size:13px;
+    }
+
+    fieldset {
+      border: 0px;
+      margin: 0 0 10px;
+      padding: 0;
+      width: 100%;
+     
+    }
+
+     
+    input, textarea 
+      {
+        border-radius: 25px;
+        width:100%;
+        border:1px solid #CCC;
+        background:$bela;
+        margin:0 0 5px;
+        padding:10px;
+       &[type="submit"]{
+        cursor:pointer;
+        width:100%;
+        border:1px solid rgb(252, 252, 252);
+        background:$red;
+        color:$bela;
+        margin:0 0 5px;
+        padding:10px;
+        border-radius: 10px;
+        font-size:15px;
+        &:hover,#social a:hover{
+          @include animacija-hover;
+        }
+        
+       }
+       &:focus{
+        outline:0;
+        border:1px solid $svetloplava;
+       }
+      }
+
+     textarea {
+      height:100px;
+      max-width:100%;
+      resize:none;
+      font-family: $open;
+    }
+   
+
+
+     #social a:hover {
+      @include animacija-hover;
+    }
+
+    ::placeholder {
+      color:#888;
+    }
+ 
+  }
+}
+
+//CONTACT
+
+//CLIENTS
+
+.clientsb{
+  width: 100%;
+  padding: 150px 0px 50px 0px; 
+  text-align: center;
+  color: $tamnoplava;
+ 
+  display: flex;  
+  justify-content: center;
+
+.item{ 
+  text-align: center;
+  margin:0px 30px; 
+  img{
+  width: 6em;
+  height: 6em;
+  border-radius: 50%;
+  }
+  h4{
+    color: $svetloplava;
+    font-weight: normal;
+  }
+  h5{
+    font-size: 0.9em;
+    padding: 0.5em 0;
+    color: #777;
+    font-weight: normal;
+  }
+  .share{
+    margin: 0px auto;
+    width: 5em;
+    display: flex;
+    justify-content: space-between;
+  }
+  i{
+    color: $svetloplava;
+    font-size: 1.3em;
+    padding: 0.5em 0;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    cursor: pointer;        ///////////////stavi linkove
+  }
+  i:hover{color: $red;}
+  p{
+    max-width: 27em;
+    font-size: 1.3em;
+  }
+
+}
+
+}
+ 
+
+
+//CLIENTS
+footer{
+  width: 100%;
+  height: auto;
+  text-align: center;
+  padding: 10px 0px;
+  background-color: $grey;
+  color:$bela;
+  display: flex;
+  justify-content: center;
+
+  
+  h3{
+    font-size: 2em;
+    text-transform: uppercase;
+    color:$tamnoplava;
+   
+    margin-top: 40px;
+  }
+   a {  
+   
+   margin-left:15px; 
+    font-size: 1em;
+    color: $bela;
+    text-align: center;
+}
+}
+
